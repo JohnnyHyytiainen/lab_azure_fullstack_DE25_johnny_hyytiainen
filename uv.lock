@@ -1,0 +1,25 @@
+version = 1
+revision = 3
+requires-python = ">=3.13"
+
+[manifest]
+members = [
+    "backend",
+    "frontend",
+    "lab-azure-fullstack-de25-johnny-hyytiainen",
+]
+
+[[package]]
+name = "backend"
+version = "0.1.0"
+source = { editable = "backend" }
+
+[[package]]
+name = "frontend"
+version = "0.1.0"
+source = { editable = "frontend" }
+
+[[package]]
+name = "lab-azure-fullstack-de25-johnny-hyytiainen"
+version = "0.1.0"
+source = { virtual = "." }
