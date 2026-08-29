@@ -69,16 +69,13 @@ class EclipseType(StrEnum):
     column from NASAs catalogs, standardizing the event type
     """
 
-    ANNULAR = "A"
-    # Ringformig solförmörkelse, finns endast i solar katalogen
-    HYBRID = "H"
-    # Hybrid solförmörkelse, finns endast i solar katalogen
-    PENUMBRAL = "N"
-    # penumbral månförmörkelse(halvskugga), finns bara i lunar katalogen
-    PARTIAL = "P"
-    # Partiell förmörkelse(båda), finns i båda katalogerna
-    TOTAL = "T"
-    # Total förmörkelse(båda), finns i båda katalogerna
+    ANNULAR = "A"  # Ringformig solförmörkelse, finns endast i solar katalogen
+    HYBRID = "H"  # Hybrid solförmörkelse, finns endast i solar katalogen
+    PENUMBRAL = (
+        "N"  # penumbral månförmörkelse(halvskugga), finns bara i lunar katalogen
+    )
+    PARTIAL = "P"  # Partiell förmörkelse(båda), finns i båda katalogerna
+    TOTAL = "T"  # Total förmörkelse(båda), finns i båda katalogerna
 
 
 # ===== Hårda gränser =====
@@ -86,7 +83,7 @@ class EclipseType(StrEnum):
 MIN_YEAR = -1999
 MAX_YEAR = 3000
 
-# Request limits(Rate limits(?))
+# PAYLOAD limit(Payload gräns, stryper hur mycket data ETT svar får innehålla. EJ EN RATE LIMIT)
 # Skydd för om någon vill ha ut ALLA rader från båda datasetten PÅ EN GÅNG.
 DEFAULT_LIMIT = 500
 MAX_LIMIT = 5_000
