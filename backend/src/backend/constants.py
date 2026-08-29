@@ -15,6 +15,8 @@ _DEFAULT_DATA_DIR = _PACKAGE_ROOT / "data" / "processed"
 
 # Env variabel först, lokal folder som fallback. Frontend kommer använda samma mönster för backends URL.
 # Koden ändras ALDRIG mellan lokalt, compose eller Azure, endast VARIABELN.
+# test av att använda mig av 12 factor app methodology, ska göra så att kod lokalt hämtar från
+# min folder struktur utan att behöva ändra EN ENDA RAD i när det är dags för docker och Azure
 DATA_DIR = Path(os.getenv("ECLIPSE_DATA_DIR", str(_DEFAULT_DATA_DIR)))
 # Ren data
 PARQUET_FILES = {
@@ -39,17 +41,33 @@ EXPECTED_COLS = (
 )
 
 
-# Data klass för vilken katalog raden kommer ifrån
-class body(StrEnum):
-    """Data class to show which catalog the row came from."""
+# Data enum för vilken katalog raden kommer ifrån
+# LIKT data classes men här bygger jag ingen instans
+# En enum används för att definiera en strikt och hardcoded lista med constants
+class Body(StrEnum):
+    """
+    Enumeration for celestial bodies.
+
+    Purpose:
+    Restricts the allowed values to strictly 'solar' or 'lunar'
+    to indicate which catalog rows originates from.
+    """
 
     SOLAR = "solar"
     LUNAR = "lunar"
 
 
-# Dataclass för att kunna särskilja på vilken förmörkelsetyp
+# Data enum för att kunna särskilja på vilken förmörkelsetyp det är
+# LIKT data classes men här bygger jag ingen instans
+# En enum används för att definiera en strikt och hardcoded lista med constants
 class EclipseType(StrEnum):
-    """The first character of the Eclipse Type according to NASAs catalogs"""
+    """
+    Enumeration for different Eclipse types.
+
+    Purpose of this Enum is to:
+    Represent the first character of the 'Eclipse Type'
+    column from NASAs catalogs, standardizing the event type
+    """
 
     ANNULAR = "A"
     # Ringformig solförmörkelse, finns endast i solar katalogen
