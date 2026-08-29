@@ -7,7 +7,12 @@ authors = [
     { name = "Johnny Hyytiäinen", email = "johnny.hyytiainen@gmail.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "httpx>=0.28.1",
+    "pandas>=3.0.5",
+    "plotly>=7.0.0",
+    "streamlit>=1.62.0",
+]
 
 [project.scripts]
 frontend = "frontend:main"

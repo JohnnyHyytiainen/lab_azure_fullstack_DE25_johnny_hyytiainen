@@ -7,7 +7,12 @@ authors = [
     { name = "Johnny Hyytiäinen", email = "johnny.hyytiainen@gmail.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "fastapi>=0.141.1",
+    "pandas>=3.0.5",
+    "pyarrow>=25.0.1",
+    "uvicorn[standard]>=0.52.4",
+]
 
 [project.scripts]
 backend = "backend:main"
