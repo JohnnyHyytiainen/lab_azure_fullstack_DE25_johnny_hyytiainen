@@ -1,0 +1,28 @@
+# .dockerignore
+# ska styra vad som packas ner i byggkontext och skickas till byggmotor.
+# Likt .gitignore som styr vad som sparas i git och kommer upp på github 
+# fungerar den här filen snarlikt fast för Docker.
+
+# ===== VENV miljöer och building artifacts =====
+# Image bygger sin EGEN VENV
+.venv/
+**/__pycache__/
+**/*.py[cod]
+
+# ===== Versionshistorik =====
+.git/
+.gitignore
+
+# ===== EDA =====
+# notebook hör hemma i repot och endast i repot
+EDA/
+
+# ===== RAW DATA =====
+# Raw data SKA ignoreras, datan som används är rena datan fast nu i mindre .parquet
+backend/data/raw/
+
+# ===== Dockerfilerna =====
+# Ska skickas separat via -f och behöver inte logga i kontexten
+dockerfiles/
+docker-compose.yaml
+.dockerignore
