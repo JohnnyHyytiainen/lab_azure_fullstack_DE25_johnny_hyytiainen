@@ -14,6 +14,7 @@
 services:
   
   backend:
+    image: eclipsebordjh.azurecr.io/backend:v1
     build:
       context: . # repots root
       dockerfile: dockerfiles/backend.dockerfile
@@ -21,6 +22,7 @@ services:
       - "8000:8000" # HOST:CONTAINER
   
   frontend:
+    image: eclipsebordjh.azurecr.io/frontend:v1
     build:
       context: .
       dockerfile: dockerfiles/frontend.dockerfile
