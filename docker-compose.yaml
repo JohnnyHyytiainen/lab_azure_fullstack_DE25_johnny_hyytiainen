@@ -1,0 +1,32 @@
+# Docker-compose.yaml
+# Kod: Engelska
+# Kommentarer: Svenska
+#
+# docker-compose som agerar "orkestrator" åt mina images. Vet ingenting om hur mina images har byggts internt.
+# Compose vet om VILKA tjänster som finns, HUR de startas och HUR dom hittar varandra.
+#
+# För att bygga om och starta båda (i detatched mode)
+# docker-compose up --build -d 
+#
+# För att stoppa och riva ner nätverket
+# docker-compose down 
+
+services:
+  
+  backend:
+    build:
+      context: . # repots root
+      dockerfile: dockerfiles/backend.dockerfile
+    ports:
+      - "8000:8000" # HOST:CONTAINER
+  
+  frontend:
+    build:
+      context: .
+      dockerfile: dockerfiles/frontend.dockerfile
+    ports:
+      - "8501:8501"
+    environment:
+      BACKEND_URL: http://backend:8000
+    depends_on:
+      - backend
