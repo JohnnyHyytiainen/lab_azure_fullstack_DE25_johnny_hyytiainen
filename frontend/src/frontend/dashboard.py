@@ -2,7 +2,7 @@
 # Kod: Engelska
 # Kommentarer: Svenska
 #
-# Syfte: INGÅNGEN. Den enda filem som kör streamlit direkt.
+# Syfte: INGÅNGEN. Den enda filen som kör streamlit direkt.
 # Läser widgets, ber api_client om data, lämnar över till charts.
 # Ritar ingenting, känner inte till någon URL
 #
