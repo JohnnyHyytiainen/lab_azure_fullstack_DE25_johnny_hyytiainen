@@ -7,6 +7,7 @@
 # Samma tankeprocess som backend/data_processing.py har i backend.
 #
 from typing import Any
+
 import httpx
 
 from frontend.config import BACKEND_URL, REQUEST_TIMEOUT
