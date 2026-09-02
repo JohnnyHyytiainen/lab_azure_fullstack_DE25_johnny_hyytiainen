@@ -53,7 +53,7 @@ resource "azurerm_container_app" "backend" {
       cpu    = 0.5
       memory = "1Gi"
     }
-    # Inga repliker när ingen använder appen = ingen kostnad.
+    # Inga replicas när ingen använder appen = ingen kostnad.
     min_replicas = 0
     max_replicas = 1
   }
@@ -96,8 +96,8 @@ resource "azurerm_container_app" "frontend" {
       memory = "1Gi"
 
       // Den här ENV raden är kritiskt och ÄR HELA DEPLOYEN
-      // Samma image som används i compose, samma image som lokalt. Enda skillnaden
-      // DEN ENDA SKILLNADEN: är värdet här. Och eftersom den LÄSER backends fqdn,
+      // Samma image som används i compose, samma image som lokalt.
+      // DEN ENDA SKILLNADEN: är värdet här. Och eftersom den LÄSER backends fqdn(Fully Qualified Domain Name),
       // backend skapas före frontend, utan att någon sagt det tack vare att terraform är smart.
       env {
         name  = "BACKEND_URL"

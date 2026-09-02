@@ -15,7 +15,7 @@ _DEFAULT_DATA_DIR = _PACKAGE_ROOT / "data" / "processed"
 
 # Env variabel först, lokal folder som fallback. Frontend kommer använda samma mönster för backends URL.
 # Koden ändras ALDRIG mellan lokalt, compose eller Azure, endast VARIABELN.
-# test av att använda mig av 12 factor app methodology, ska göra så att kod lokalt hämtar från
+# test av att använda mig av 12 factor app methodology-likt mönster, ska göra så att kod lokalt hämtar från
 # min folder struktur utan att behöva ändra EN ENDA RAD i när det är dags för docker och Azure
 DATA_DIR = Path(os.getenv("ECLIPSE_DATA_DIR", str(_DEFAULT_DATA_DIR)))
 # Ren data
