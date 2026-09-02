@@ -11,7 +11,9 @@
 # Aggregat tar emot ett redan filtrerat resultat.
 
 from pathlib import Path
+
 import pandas as pd
+
 from backend.constants import EXPECTED_COLS, PARQUET_FILES, Body, EclipseType
 
 # ===== Läsning, körs EN gång vid uppstart =====
